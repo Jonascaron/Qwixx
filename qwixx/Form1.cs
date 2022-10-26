@@ -17,7 +17,8 @@ namespace qwixx
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
         }
-        Button[] arrayRijRood = new Button[12];
+        Button[] arrayRijRood = new Button[12
+];
         Button[] arrayRijGeel = new Button[12];
         Button[] arrayRijGroen = new Button[12];
         Button[] arrayRijBlauw = new Button[12];
@@ -30,22 +31,22 @@ namespace qwixx
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            kaartOpScherm(arrayRijRood, 10, 50, Color.Red, 2, 2);
-            kaartOpScherm(arrayRijGeel, 10, 100, Color.Yellow, 2, 2);
-            kaartOpScherm(arrayRijGroen, 10, 150, Color.Green, 12, 12);
-            kaartOpScherm(arrayRijBlauw, 10, 200, Color.Blue, 12, 12);
-            kaartOpScherm(arrayRijRood2, 850, 50, Color.Red, 2, 2);
-            kaartOpScherm(arrayRijGeel2, 850, 100, Color.Yellow, 2, 2);
-            kaartOpScherm(arrayRijGroen2, 850, 150, Color.Green, 12, 12);
-            kaartOpScherm(arrayRijBlauw2, 850, 200, Color.Blue, 12, 12);
+            kaartOpScherm(arrayRijRood, 50, 40, Color.Red, 2, 2);
+            kaartOpScherm(arrayRijGeel, 50, 90, Color.Yellow, 2, 2);
+            kaartOpScherm(arrayRijGroen, 50, 140, Color.Green, 12, 12);
+            kaartOpScherm(arrayRijBlauw, 50, 190, Color.Blue, 12, 12);
+            kaartOpScherm(arrayRijRood2, 850, 40, Color.Red, 2, 2);
+            kaartOpScherm(arrayRijGeel2, 850, 90, Color.Yellow, 2, 2);
+            kaartOpScherm(arrayRijGroen2, 850, 140, Color.Green, 12, 12);
+            kaartOpScherm(arrayRijBlauw2, 850, 190, Color.Blue, 12, 12);
             disableButtons(arrayRijRood2, Color.Red);
             disableButtons(arrayRijGeel2, Color.Yellow);
             disableButtons(arrayRijGroen2, Color.Green);
             disableButtons(arrayRijBlauw2, Color.Blue);
-            disableButtons(arrayRijRood, Color.Red);
-            disableButtons(arrayRijGeel, Color.Yellow);
-            disableButtons(arrayRijGroen, Color.Green);
-            disableButtons(arrayRijBlauw, Color.Blue);
+            enableButtons(arrayRijRood, Color.Red);
+            enableButtons(arrayRijGeel, Color.Yellow);
+            enableButtons(arrayRijGroen, Color.Green);
+            enableButtons(arrayRijBlauw, Color.Blue);
         }
 
         public void kaartOpScherm(Button[] arraybutton, int xPos, int ypos, Color color, int a, int b)
@@ -59,7 +60,7 @@ namespace qwixx
                 arraybutton[i].Tag = i;
                 arraybutton[i].Font = new Font("Serif", 18, FontStyle.Bold);
                 arraybutton[i].Size = new Size(50, 50);
-                arraybutton[i].Location = new Point(xPos + (i % 12) * 50, ypos + (i / 12) * 60);
+                arraybutton[i].Location = new Point(xPos + i * 50, ypos);
                 this.Controls.Add(arraybutton[i]);
                 if (b == 2)
                 {
@@ -222,10 +223,8 @@ namespace qwixx
                         arrayButton[i].Enabled = false;
                         arrayButton[i].BackColor = TransparencyKey;
                     }
-
                 }
                 vakje.BackColor = kleur2;
-
             }
         }
 
@@ -255,17 +254,6 @@ namespace qwixx
             turn = !turn;
             if (turn == true)
             {
-                disableButtons(arrayRijRood2, Color.Red);
-                disableButtons(arrayRijGeel2, Color.Yellow);
-                disableButtons(arrayRijGroen2, Color.Green);
-                disableButtons(arrayRijBlauw2, Color.Blue);
-                enableButtons(arrayRijRood, Color.Red);
-                enableButtons(arrayRijGeel, Color.Yellow);
-                enableButtons(arrayRijGroen, Color.Green);
-                enableButtons(arrayRijBlauw, Color.Blue);
-            }
-            else
-            {
                 disableButtons(arrayRijRood, Color.Red);
                 disableButtons(arrayRijGeel, Color.Yellow);
                 disableButtons(arrayRijGroen, Color.Green);
@@ -274,6 +262,17 @@ namespace qwixx
                 enableButtons(arrayRijGeel2, Color.Yellow);
                 enableButtons(arrayRijGroen2, Color.Green);
                 enableButtons(arrayRijBlauw2, Color.Blue);
+            }
+            else
+            {
+                disableButtons(arrayRijRood2, Color.Red);
+                disableButtons(arrayRijGeel2, Color.Yellow);
+                disableButtons(arrayRijGroen2, Color.Green);
+                disableButtons(arrayRijBlauw2, Color.Blue);
+                enableButtons(arrayRijRood, Color.Red);
+                enableButtons(arrayRijGeel, Color.Yellow);
+                enableButtons(arrayRijGroen, Color.Green);
+                enableButtons(arrayRijBlauw, Color.Blue);
             }
         }
     }
